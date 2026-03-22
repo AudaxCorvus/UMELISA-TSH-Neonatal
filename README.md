@@ -1,6 +1,3 @@
-Tienes razón. Aquí está el README completo:
-
-```markdown
 # UMELISA TSH Neonatal - Sistema de Análisis de Curvas de Calibración
 
 [![Python Version](https://img.shields.io/badge/python-3.8%2B-blue.svg)](https://python.org)
