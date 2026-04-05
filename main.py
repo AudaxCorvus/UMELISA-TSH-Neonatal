@@ -78,9 +78,44 @@ class Application:
 
         config_menu = tk.Menu(menubar, tearoff=0)
         config_menu.add_command(label="Editar parámetros...", command=self.open_config)
+        config_menu.add_separator()
+        config_menu.add_command(label="Recalcular punto de corte (Percentil 99)...", 
+                            command=self.open_cutoff_calculator)
         menubar.add_cascade(label="Configuración", menu=config_menu)
+        
+        # NUEVO: Menú de Datos
+        data_menu = tk.Menu(menubar, tearoff=0)
+        data_menu.add_command(label="Calcular percentil desde múltiples archivos...", 
+                            command=self.open_batch_calculator)
+        data_menu.add_separator()
+        data_menu.add_command(label="Ver historial de placas...", 
+                            command=self.open_history_view)
+        menubar.add_cascade(label="Datos", menu=data_menu)
 
         self.app.config(menu=menubar)
+
+    # NUEVOS MÉTODOS
+    def open_cutoff_calculator(self):
+        """Abre la ventana para calcular punto de corte por percentil 99."""
+        if not self.controller.current_assay:
+            messagebox.showwarning(
+                "Sin ensayo", 
+                "Primero debe cargar una placa para calcular el punto de corte."
+            )
+            return
+        
+        from views.batch_cutoff_view import BatchCutoffView
+        BatchCutoffView(self.app, self.controller)
+
+    def open_batch_calculator(self):
+        """Abre la calculadora de percentil para múltiples archivos."""
+        from views.batch_cutoff_view import BatchCutoffView
+        BatchCutoffView(self.app, self.controller)
+
+    def open_history_view(self):
+        """Abre la vista de historial."""
+        from views.history_view import HistoryView
+        HistoryView(self.app, self.controller)
 
     def open_config(self):
         if self.config_view is None or not hasattr(self.config_view, 'window') or not self.config_view.window.winfo_exists():

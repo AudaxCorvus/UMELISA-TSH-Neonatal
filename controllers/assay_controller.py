@@ -72,3 +72,65 @@ class AssayController:
         if not self.current_assay:
             raise ValueError("No hay ensayo disponible para resumir.")
         return self.current_assay.get_summary()
+    
+    # ============================================================
+    #   NUEVO: Métodos para punto de corte por percentil 99
+    # ============================================================
+    
+    def calculate_percentile_99_cutoff(self, use_historical: bool = True):
+        """
+        Calcula el punto de corte usando percentil 99 de las muestras normales.
+        """
+        if not self.current_assay:
+            raise ValueError("No hay un ensayo cargado.")
+        
+        from controllers.cutoff_controller import CutoffController
+        cutoff_ctrl = CutoffController()
+        
+        return cutoff_ctrl.calculate_percentile_99_cutoff(
+            self.current_assay, 
+            use_historical=use_historical
+        )
+    
+    def get_cutoff_statistics(self, use_historical: bool = True):
+        """
+        Obtiene estadísticas para el cálculo del punto de corte.
+        """
+        if not self.current_assay:
+            raise ValueError("No hay un ensayo cargado.")
+        
+        from controllers.cutoff_controller import CutoffController
+        cutoff_ctrl = CutoffController()
+        
+        return cutoff_ctrl.get_cutoff_statistics(
+            self.current_assay,
+            use_historical=use_historical
+        )
+    
+    def apply_new_cutoff(self, new_cutoff: float) -> bool:
+        """
+        Aplica un nuevo punto de corte al ensayo actual.
+        """
+        if not self.current_assay:
+            raise ValueError("No hay un ensayo cargado.")
+        
+        from controllers.cutoff_controller import CutoffController
+        cutoff_ctrl = CutoffController()
+        
+        return cutoff_ctrl.apply_cutoff_to_assay(self.current_assay, new_cutoff)
+    
+    # ============================================================
+#   NUEVO: Guardado automático al cargar placa
+# ============================================================
+
+def save_current_plate_to_history(self, plate_file: str = None) -> bool:
+    """
+    Guarda la placa actual en el histórico.
+    Se llama automáticamente después de cargar una placa.
+    """
+    if not self.current_assay:
+        return False
+    
+    from controllers.cutoff_controller import CutoffController
+    cutoff_ctrl = CutoffController()
+    return cutoff_ctrl.save_plate_to_history(self.current_assay, plate_file)

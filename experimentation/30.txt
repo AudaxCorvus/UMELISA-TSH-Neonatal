@@ -1,0 +1,55 @@
+================================================================================
+  CÁLCULO DE PERCENTIL 99 - TSH NEONATAL
+================================================================================
+
+📊 RESULTADO PRINCIPAL:
+  ▶ Percentil 99: 27.84 mUI/L
+
+📈 RESUMEN DE DATOS:
+  • Total de placas procesadas: 6
+  • Total de muestras analizadas: 90
+  • Muestras ELEVADAS excluidas: 40
+  • Muestras > Ult. Punto excluidas: 1
+  • ✅ MUESTRAS NORMALES UTILIZADAS: 49
+
+📐 ESTADÍSTICAS DE LA POBLACIÓN NORMAL (mUI/L):
+  • Media (promedio):           16.42 mUI/L
+  • Desviación estándar:         7.65 mUI/L
+  • Mediana:                    20.15 mUI/L
+  • Mínimo:                      0.48 mUI/L
+  • Máximo:                     29.59 mUI/L
+
+📊 PERCENTILES:
+  • Percentil 95:               25.42 mUI/L
+  • Percentil 97.5:             25.86 mUI/L
+  • ▶ Percentil 99:             27.84 mUI/L  ← RECOMENDADO
+  • Percentil 99.5:             28.72 mUI/L
+
+📁 DETALLE POR PLACA:
+--------------------------------------------------------------------------------
+Archivo                             Total    Normales   Elevados  
+--------------------------------------------------------------------------------
+lec_A.flu                           15       8          7         
+lec_B.flu                           15       8          7         
+lec_C.flu                           15       8          7         
+lec_D.flu                           15       9          6         
+lec_E.flu                           15       8          6         
+lec_F.flu                           15       8          7         
+
+📊 ESTADÍSTICAS POR PLACA (muestras normales):
+--------------------------------------------------------------------------------
+Archivo                             Muestras   Mínimo     Máximo     Media     
+--------------------------------------------------------------------------------
+lec_A.flu                           8          0.53       25.21      16.39     
+lec_B.flu                           8          1.19       25.95      16.38     
+lec_C.flu                           8          0.53       24.65      15.72     
+lec_D.flu                           9          0.48       29.59      18.08     
+lec_E.flu                           8          0.69       22.16      15.42     
+lec_F.flu                           8          0.61       24.01      16.30     
+
+================================================================================
+ℹ️ NOTA: Este es solo un cálculo informativo.
+       Para aplicar este valor, vaya a Configuración → Editar parámetros
+       y modifique el 'Punto de corte' manualmente.
+================================================================================
+
